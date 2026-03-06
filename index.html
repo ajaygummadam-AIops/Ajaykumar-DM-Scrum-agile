@@ -415,39 +415,57 @@ h1.hero-name {
 ============================================= */
 #thoughts { background: #0F1A2E; border-top: 1px solid rgba(74,159,232,0.1); border-bottom: 1px solid rgba(74,159,232,0.1); }
 
-.th-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
+.th-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
 .th-card {
-  background: rgba(255,255,255,0.03); border: 1px solid rgba(74,159,232,0.12);
-  border-radius: var(--r); padding: 26px;
-  transition: all 0.3s; position: relative; overflow: hidden;
+  background: #fff;
+  border: 1px solid #E2DDD4;
+  border-radius: 6px;
+  padding: 26px 24px 22px;
+  display: flex; flex-direction: column;
+  transition: box-shadow 0.25s, transform 0.25s;
+  position: relative; overflow: hidden;
 }
-.th-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, var(--amber), var(--sky));
-  transform: scaleX(0); transform-origin: left; transition: transform 0.35s;
+.th-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  transform: translateY(-3px);
 }
-.th-card:hover { border-color: rgba(74,159,232,0.35); background: rgba(74,159,232,0.05); transform: translateY(-4px); box-shadow: 0 14px 44px rgba(0,0,0,0.35); }
-.th-card:hover::before { transform: scaleX(1); }
-.th-tags { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 14px; }
-.th-tag {
-  font-size: 0.62rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-  padding: 3px 10px; border-radius: 20px;
-  background: rgba(74,159,232,0.1); color: var(--sky); border: 1px solid rgba(74,159,232,0.25);
+.th-cat {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--amber); margin-bottom: 12px;
 }
-.th-tag.t-amber { background: rgba(193,122,42,0.1); color: var(--amber-lite); border-color: rgba(193,122,42,0.25); }
 .th-title {
-  font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700;
-  color: var(--text-light); margin-bottom: 10px; line-height: 1.3;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.02rem; font-weight: 700;
+  color: var(--ink); line-height: 1.35;
+  margin-bottom: 12px;
 }
-.th-body { font-size: 0.82rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 18px; }
-.th-author { display: flex; align-items: center; gap: 10px; }
-.th-av {
-  width: 30px; height: 30px; border-radius: 50%; background: var(--amber);
-  color: var(--ink-deep); display: flex; align-items: center; justify-content: center;
-  font-family: 'Playfair Display', serif; font-weight: 700; font-size: 0.82rem; flex-shrink: 0;
+.th-body {
+  font-size: 0.82rem; color: #5A4E42;
+  line-height: 1.72; flex: 1; margin-bottom: 24px;
 }
-.th-byline { font-size: 0.7rem; color: var(--text-muted); }
-.th-byline strong { color: var(--text-dim); font-weight: 500; }
+.th-footer {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #EEE;
+  padding-top: 14px;
+}
+.th-author-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.66rem; color: #8A7A6A; letter-spacing: 0.04em;
+}
+.th-topic {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.66rem; color: #8A7A6A; letter-spacing: 0.04em;
+}
+
+@media (max-width: 900px) { .th-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .th-grid { grid-template-columns: 1fr; } }
 
 /* =============================================
    ACHIEVEMENTS  (#0D1117)
